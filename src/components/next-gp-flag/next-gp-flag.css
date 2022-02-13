@@ -1,0 +1,7 @@
+.flag-style {
+    display: flex;
+    margin: 5px;
+    width: 150px;
+    height: 90px;
+    border-style: groove;
+}

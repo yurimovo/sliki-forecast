@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    border-style: groove;
+    background-image: url(../../media/metal-head.jpg);
+}
+
+.img {
+    margin: 5px;
+}

@@ -1,0 +1,5 @@
+.container-style {
+    background-image: url(../../media/bg-body.jpg);
+    border-radius: 10px;
+    border-style: groove;
+}
