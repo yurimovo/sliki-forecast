@@ -1,39 +1,14 @@
-const Router = require("express");
+const Router = require("express")
+const controller = require('../controllers/auth.controller')
 const User = require("../models/User")
 const bcrypt = require("bcryptjs")
 const config = require("config")
 const jwt = require("jsonwebtoken")
-const {check, validationResult} = require("express-validator")
+//const {check, validationResult} = require("express-validator")
 const router = new Router()
 
 
-router.post('/register',
-    [
-        check(
-            'password',
-            'Пароль должен быть длиннее 3 символов и короче 12').isLength(
-                {min:3, max:12})
-    ],
-    async (req, res) => {
-        try {
-            const errors = validationResult(req)
-            if (!errors.isEmpty()) {
-                return res.status(400).json({message: "Некорректный запрос", errors})
-            }
-            const {userName, password} = req.body
-            const candidate = await User.findOne({userName})
-            if(candidate) {
-                return res.status(400).json({message: `Пользователь существует`})
-            }
-            const hashPassword = await bcrypt.hash(password, 8)
-            const user = new User({userName, password: hashPassword})
-            await user.save()
-            res.json({message: "Пользователь создан"})
-        } catch (e) {
-            console.log(e)
-            res.send({message: "Ошибка сервера"})
-        }
-    })
+router.post('/registration', controller.registration)
 
 router.post('/login',
     async (req, res) => {
