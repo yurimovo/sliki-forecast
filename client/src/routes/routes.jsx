@@ -16,13 +16,14 @@ export const useRoutes = () => {
         <>
             { auth ?
                 <Routes>
-                    <Route path={'/'} exact element={<Body />} />
+
                     <Route path={'/next-gp'} element={<NextGp />} />
                     <Route path={'/pilots-position'} element={<PilotsPosition />} />
                     <Route path={'/teams-position'} element={<TeamsPosition />} />
                     <Route path={'/forecasters-position'} element={<ForecastersPosition />} />
                     <Route path={'/new-forecast'} element={<NewForecast />} />
                     <Route path={'/register'} element={<Register />} />
+                    <Route path={'/auth'} element={<Auth />} />
                 </Routes> :
                 <Routes>
                     <Route path={'/auth'} element={<Auth />} />

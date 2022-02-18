@@ -32,11 +32,11 @@ const App = () => {
                 </div>
             </div>
             <div className={'row'}>
-                {!auth ? null :
+                {/*{!auth ? null :*/}
                     <div className={'col-sm-12'}>
-                        <Body/>
+                        {useRoutes()}
                     </div>
-                }
+                {/*}*/}
             </div>
             <div className={'row'}>
                 <div className={'col-md-12'}>

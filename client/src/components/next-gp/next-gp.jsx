@@ -8,7 +8,7 @@ import AddForecastButton from "../../ui/buttons/add-forecast-button/add-forecast
 
 const NextGp = () => {
     return (
-        <div className={'container container-style'}>
+        <div className={'container'}>
             <div className={'row align-items-center next-gp'}>
                 <div className={'col-md-2 text-center'}>
                     <NextGpFlag/>

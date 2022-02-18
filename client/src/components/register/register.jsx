@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import validator from 'validator'
-//import { DOMEN_SERVER, DOMEN_SITE } from '../../config/const'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './register.css'
@@ -28,7 +27,7 @@ export const Register = () => {
     }
 
 
-    const submitChackin = event => {
+    const submitCheckIn = event => {
         event.preventDefault();
         if(!validator.isEmail(register.email)) {
             alert("Вы не ввели Email")
@@ -54,9 +53,9 @@ export const Register = () => {
     }
 
     return (
-        <div className={'form'}>
+        <div className={'container'}>
             <h2>Register user:</h2>
-            <form onSubmit={submitChackin}>
+            <form className={'form-style'} onSubmit={submitCheckIn}>
                 <p>Name: <input
                     type="username"
                     id="username"
@@ -70,7 +69,7 @@ export const Register = () => {
                     name="email"
                     value={register.email}
                     onChange={changeInputRegister}
-                    formnovalidate
+                    formNoValidate
                 /></p>
                 <p>Password: <input
                     type="password"
