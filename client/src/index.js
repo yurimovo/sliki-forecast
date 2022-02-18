@@ -2,10 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/app/app'
 import { BrowserRouter as Router } from "react-router-dom"
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
 ReactDOM.render(
-    <Router>
-        <App />
-    </Router>,
+    <Provider  store={store}>
+        <Router>
+            <App />
+        </Router>
+    </Provider>,
   document.getElementById('root')
 )
