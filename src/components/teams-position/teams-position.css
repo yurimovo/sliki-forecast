@@ -1,7 +1,8 @@
 .teams {
     border-style: groove;
     border-radius: 10px;
-    margin: 1em 0.5em 1em 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
     background-image: url(../../media/bg-body.jpg);
 }
 

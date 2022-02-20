@@ -1,0 +1,5 @@
+.design-personal-page {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../media/bg-body.jpg);
+}

@@ -7,7 +7,7 @@ const NextGpDeadline = () => {
         <div>
             <h3 className={'text-style'}>
                 ГП Бахрейна<br/>
-                23-25.03
+                18-20.03
             </h3>
         </div>
     )

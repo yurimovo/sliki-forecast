@@ -3,4 +3,5 @@
     flex-direction: column;
     border-style: groove;
     background-image: url(../../media/bg-positions.jpg);
+    justify-content: space-between;
 }

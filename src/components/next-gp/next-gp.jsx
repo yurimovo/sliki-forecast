@@ -8,7 +8,7 @@ import AddForecastButton from "../../ui/buttons/add-forecast-button/add-forecast
 
 const NextGp = () => {
     return (
-        <div className={'container container-style'}>
+        <div className={'container'}>
             <div className={'row align-items-center next-gp'}>
                 <div className={'col-md-2 text-center'}>
                     <NextGpFlag/>
@@ -16,10 +16,10 @@ const NextGp = () => {
                 <div className={'col-md-4 text-center'}>
                     <NextGpDeadline/>
                 </div>
-                <div className={'col-md-2'}>
+                <div className={'col-md-2 text-center'}>
                     <NextGpTimer/>
                 </div>
-                <div className={'col-md-4'}>
+                <div className={'col-md-4 text-center'}>
                     <AddForecastButton/>
                 </div>
             </div>

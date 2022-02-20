@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
 
-.h4-auth-form {
-    font-family: 'Anonymous Pro', monospace;
-    color: darkblue;
-}
-
-.main-style-auth-form {
+.main-style-reg-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,16 +12,21 @@
     background-image: url(../../media/bg-body.jpg);
 }
 
-.btn-style-auth-form {
+.h4-reg-form {
+    font-family: 'Anonymous Pro', monospace;
+    color: maroon;
+}
+
+.btn-style-reg-form {
     margin-top: 5px;
     margin-bottom: 5px;
     width: 50%;
 }
 
-.input-auth-form {
+.input-reg-form {
     margin-top: 5px;
 }
 
-.hr-auth-form {
+.hr-reg-form {
     color: maroon;
 }
