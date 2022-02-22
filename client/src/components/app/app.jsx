@@ -1,28 +1,27 @@
 import React, { useEffect } from 'react'
 import Header from "../header/header"
 import Footer from "../footer/footer"
-import Body from "../body/body"
 
 import { useDispatch, useSelector } from "react-redux"
-import { checkAuth } from "../../store/actions"
+import { checkAuth } from "../../store/actions/authActions"
 import { useNavigate } from 'react-router-dom'
 
-import { useRoutes } from "../../routes/routes"
+import {useRoutesMain} from "../../routes/routes"
 
 import './app.css'
 
 const App = () => {
-
+    const routesMain = useRoutesMain(true)
     const dispatch = useDispatch()
     const history = useNavigate()
     const auth = useSelector(state => state.auth)
 
-    useEffect(() => {
+    /*useEffect(() => {
         dispatch(checkAuth())
         if (!auth) {
             history('/auth')
         }
-    },[])
+    })*/
 
     return (
         <div className={'container main'}>
@@ -32,9 +31,9 @@ const App = () => {
                 </div>
             </div>
             <div className={'row'}>
-                {/*{!auth ? null :*/}
+                {/*{auth ? null :*/}
                     <div className={'col-sm-12'}>
-                        {useRoutes()}
+                        {routesMain}
                     </div>
                 {/*}*/}
             </div>

@@ -1,5 +1,32 @@
-.form-style {
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
+
+.main-style-reg-form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    border-color: lightslategrey;
+    border-style: groove;
+    border-radius: 10px;
+    width: 350px;
+    margin: 5px auto 5px auto;
+    background-image: url(../../media/bg-body.jpg);
+}
+
+.h4-reg-form {
+    font-family: 'Anonymous Pro', monospace;
+    color: maroon;
+}
+
+.btn-style-reg-form {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.input-reg-form {
+    margin-top: 5px;
+}
+
+.hr-reg-form {
+    color: maroon;
 }

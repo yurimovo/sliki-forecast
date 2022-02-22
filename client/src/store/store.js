@@ -1,8 +1,8 @@
 import { createStore } from "redux"
 
-import reducer from "./reducer"
+import authReducer from "./reducers/authReducer"
 
-const store = createStore(reducer, window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION())
+const store = createStore(authReducer, window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION())
 
 export {
     store

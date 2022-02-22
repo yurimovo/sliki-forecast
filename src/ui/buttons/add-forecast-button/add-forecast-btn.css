@@ -1,0 +1,20 @@
+.btn-style {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: groove;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.nav-item:visited {
+    text-decoration: none;
+    color: aliceblue;
+}
