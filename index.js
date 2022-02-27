@@ -1,22 +1,16 @@
 const express = require('express')
-const cors = require('cors')
-const mongoose = require('mongoose')
 const config = require('config')
-const auth = require('./routes/auth')
-const passport = require('passport')
-
-const PORT = config.get('port') || 5000
+const mongoose = require('mongoose')
 
 const app = express()
+const bodyParser = require('body-parser')
 
-app.use(express.json())
-app.use(cors())
-
-app.use('/api/auth', auth)
-app.use(passport.initialize())
-require('./middleware/authJwtMiddleware')(passport)
+app.use(bodyParser.json())
+app.use('/api/auth', require('./routes/auth.routes'))
 //app.use('/api/forecast', require('./routes/forecast.routes'))
 //app.use('/api/admin', require('./routes/admin.routes'))
+
+const PORT = config.get('port') || 5000
 
 async function start() {
     try {
