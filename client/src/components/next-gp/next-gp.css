@@ -1,0 +1,8 @@
+.next-gp {
+    display: flex;
+    flex-direction: row;
+    border-style: groove;
+    border-radius: 15px;
+    margin-top: 1em;
+    background-image: url(../../media/bg-next-gp.jpg);
+}

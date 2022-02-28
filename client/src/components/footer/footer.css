@@ -1,0 +1,6 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    border-style: groove;
+    background-image: url(../../media/bg-positions.jpg);
+}
