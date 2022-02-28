@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
+
+.h4-auth-form {
+    font-family: 'Anonymous Pro', monospace;
+    color: darkblue;
+}
+
+.main-style-auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: lightslategrey;
+    border-style: groove;
+    border-radius: 10px;
+    width: 350px;
+    margin: 5px auto 5px auto;
+    background-image: url(../../media/bg-body.jpg);
+}
+
+.btn-style-auth-form {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.input-auth-form {
+    margin-top: 5px;
+}
+
+.hr-auth-form {
+    color: maroon;
+}

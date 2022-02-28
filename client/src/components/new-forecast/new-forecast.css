@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
+
+.design-new-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: lightslategrey;
+    border-style: groove;
+    border-radius: 10px;
+    width: 100%;
+    margin: 5px auto 5px auto;
+    background-image: url(../../media/bg-body.jpg);
+}
+
+.select-new-forecast {
+    margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.h2-new-forecast {
+    font-family: 'Anonymous Pro', monospace;
+    color: maroon;
+}
+
+.h5-new-forecast {
+    font-family: 'Anonymous Pro', monospace;
+    color: maroon;
+    margin-top: 10px;
+
+}
+
+.col-new-forecast {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+}
+
+.row-new-forecast {
+    margin-bottom: 10px;
+}
+
+.btn-new-forecast {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}

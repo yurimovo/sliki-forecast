@@ -1,0 +1,13 @@
+.design-personal-page {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../media/bg-body.jpg);
+}
+
+.column-personal-page {
+    display: flex;
+    flex-direction: column;
+    border-style: groove;
+    border-radius: 10px;
+    margin: 5px auto 5px auto;
+}
