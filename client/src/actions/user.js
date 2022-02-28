@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-const registration = async (userName, password) => {
+const registration = async (userName, password, isAdmin) => {
     try {
         const response = await axios.post(`/api/auth/register`, {
             userName,
-            password
+            password,
+            isAdmin
         })
         console.log(response.data.message)
     } catch (e) {
@@ -12,14 +13,16 @@ const registration = async (userName, password) => {
     }
 }
 
-const authorization = async (userName, password) => {
+const authorization = async (userName, password, isAdmin) => {
 
     try {
         const response = await axios.post(`/api/auth/login`, {
             userName,
-            password
+            password,
+            isAdmin
         })
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('currentUser', response.data.userName)
     } catch (e) {
         console.log(e.response.data.message)
     }
