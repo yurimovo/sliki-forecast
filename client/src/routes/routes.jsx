@@ -14,6 +14,7 @@ import PersonalForecastPoints from "../components/personal-forecast-points/perso
 import PersonalForecastPosition from "../components/personal-forecast-position/personal-forecast-position"
 import PersonalForecasts from "../components/personal-forecasts/personal-forecasts"
 import PersonalForecastDetails from "../components/personal-forecast-details/personal-forecast-details"
+import RaceResult from "../components/race-result/race-result";
 
 export const useRoutes = () => {
     const auth = useSelector(state => state.auth)
@@ -32,10 +33,11 @@ export const useRoutes = () => {
                     <Route path={'/personal-forecast-position'} exact element={<PersonalForecastPosition />} />
                     <Route path={'/personal-forecasts'} exact element={<PersonalForecasts />} />
                     <Route path={'/personal-forecast-details'} exact element={<PersonalForecastDetails />} />
+                    <Route path={'/race-result'} exact element={<RaceResult />} />
                 </Routes> :
                 <Routes>
                     <Route path={'/auth'} exact element={<Auth />} />
-                    <Route path={'/register'} element={<Register />} />
+                    <Route path={'/register'} exact element={<Register />} />
                 </Routes>
             }
         </>

@@ -10,17 +10,21 @@ import './register.css'
 export const Register = () => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const [isAdmin, setIsAdmin] = useState(false)
     const history = useNavigate()
 
     const handleRegister = async () => {
-        await registration(userName, password)
-        setUserName('')
-        setPassword('')
+        if (userName === 'superadmin') {
+            setIsAdmin(true)
+        }
+        await registration(userName, password, isAdmin)
+        /*setUserName('')
+        setPassword('')*/
         history('/auth')
     }
 
     return (
-        <div className={'container'}>
+        <div className={'container container-register'}>
             <div className={'row'}>
                 <div className={'col-md-12'}>
                     <div className={'main-style-reg-form text-center'}>

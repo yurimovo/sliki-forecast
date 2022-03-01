@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 import {useRoutes} from "../../routes/routes"
 
 import './app.css'
+import {Auth} from "../auth/auth"
+import {Register} from "../register/register"
 
 const App = () => {
     const routes = useRoutes()
@@ -20,6 +22,8 @@ const App = () => {
         dispatch(checkAuth())
         if (!auth) {
             history('/auth')
+        } else {
+            history('/')
         }
     },[])
 
@@ -31,7 +35,7 @@ const App = () => {
                 </div>
             </div>
             <div className={'row'}>
-                {auth ? null :
+                {!auth ? <Auth /> :
                     <div className={'col-sm-12'}>
                         {routes}
                     </div>

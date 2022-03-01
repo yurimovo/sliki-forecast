@@ -12,6 +12,13 @@
     background-image: url(../../media/bg-body.jpg);
 }
 
+.container-register {
+    height: 83vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .h4-reg-form {
     font-family: 'Anonymous Pro', monospace;
     color: maroon;

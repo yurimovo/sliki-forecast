@@ -24,7 +24,12 @@ export const Auth = () => {
     }
 
     return (
-        <div className={'container'}>
+        <div className={'container'} style={{
+            height: '83vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
             <div className={'row'}>
                 <div className={'col-md-12'}>
                     <div className={'main-style-auth-form text-center'}>

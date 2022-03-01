@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use('/api/auth', require('./routes/auth.routes'))
 //app.use('/api/forecast', require('./routes/forecast.routes'))
-//app.use('/api/admin', require('./routes/admin.routes'))
+//app.use('/api/admin-button', require('./routes/admin-button.routes'))
 
 const PORT = config.get('port') || 5000
 

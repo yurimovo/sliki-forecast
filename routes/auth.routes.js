@@ -25,7 +25,7 @@ router.post('/register',
             return res.status(400).json({message: `User already exist`})
         }
         const hashPassword = await bcrypt.hash(password, 8)
-        const user = new User({userName, password: hashPassword})
+        const user = new User({userName, password: hashPassword, isAdmin: false})
         await user.save()
         res.json({message: "User was created"})
     } catch (e) {
@@ -47,12 +47,13 @@ router.post('/login',
             if (!isPassValid) {
                 return res.status(400).json({message: "Invalid password"})
             }
-            const token = jwt.sign({id: user.id}, config.get("jwtSecret"), {expiresIn: "1h"})
+            const token = jwt.sign({id: user.id, isAdmin: user.isAdmin}, config.get("jwtSecret"), {expiresIn: "1h"})
             return res.json({
                 token,
                 user: {
                     id: user.id,
                     userName: user.userName,
+                    isAdmin: user.isAdmin
                 }
             })
         } catch (e) {
