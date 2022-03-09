@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -12,6 +12,9 @@ import HeaderBackground from '../../media/bg-header.png';
 import HeaderLogo from '../../media/logo.png';
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../store/actions/authActions";
+import firebase from "firebase";
+import {Context} from "../../index";
+import 'firebase/auth';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -58,14 +61,28 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
 
     const classes = useStyles();
-    const auth = useSelector(state => state.auth);
+    //const auth = useSelector(state => state.auth);
     const isAdmin = localStorage.getItem('isAdmin');
     const history = useNavigate();
     const dispatch = useDispatch();
 
+    const {auth} = useContext(Context);
+    const [isAuth, setIsAuth] =useState(false);
+
     const handleLogout = () => {
         dispatch(logout())
         history('/auth')
+    }
+
+    const login = async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const {user} = await auth.signInWithPopup(provider);
+        await firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setIsAuth(true);
+            }
+        })
+        console.log(user);
     }
 
     return (
@@ -76,14 +93,16 @@ const Header = () => {
                </Grid>
                <Grid item md={6}>
                    <Toolbar>
-                       {!auth ?
+                       {!isAuth ?
                        <>
                            <Button
                                className={classes.headerButton}
                                color={'primary'}
                                variant={'contained'}
+                               onClick={login}
                            >
-                               <Link className={classes.headerLink} to={'/auth'}>Войти</Link>
+                               Войти
+                               {/*<Link className={classes.headerLink} to={'/auth'}>Войти</Link>*/}
                            </Button>
                            <Button
                                className={classes.headerButton}
@@ -115,7 +134,7 @@ const Header = () => {
                                <Link className={classes.headerLink} to="/personal-page">Личный кабинет</Link>
                            </Button>
                        </>}
-                       {isAdmin ?
+                       {/*{isAdmin ?
                            <>
                                <Button
                                    className={classes.headerButton}
@@ -125,7 +144,7 @@ const Header = () => {
                                    <Link className={classes.headerLink} to="/race-result">Админка</Link>
                                </Button>
                            </> : null
-                       }
+                       }*/}
                    </Toolbar>
                </Grid>
                <Grid item md={2}>

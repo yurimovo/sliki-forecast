@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {useNavigate} from 'react-router-dom';
@@ -7,6 +7,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
+import firebase from "firebase";
+import {Context} from "../../index";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -33,6 +35,8 @@ export const Auth = () => {
     const [formValid, setFormValid] = useState(false);
     const history = useNavigate();
     const classes = useStyles();
+
+    const {auth} = useContext(Context);
 
     const emailHandler = (e) => {
         setEmail(e.target.value);
@@ -81,6 +85,12 @@ export const Auth = () => {
         }
     }*/
 
+    const login = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const {user} = auth.signInWithPopup(provider);
+        console.log(user);
+    }
+
     return (
         <Container component={'main'} maxWidth={'xs'}>
             <form className={classes.form} noValidate>
@@ -128,6 +138,17 @@ export const Auth = () => {
                             color="primary"
                             className={classes.submit}
                             /*onClick={handleLogin}*/
+                            disabled={!formValid}
+                        >
+                            Войти
+                        </Button>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={login}
                             disabled={!formValid}
                         >
                             Войти
