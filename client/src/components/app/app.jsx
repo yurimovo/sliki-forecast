@@ -8,12 +8,17 @@ import './app.css'
 import {Auth} from "../auth/auth"
 import {Context} from "../../index";
 import {useAuthState} from "react-firebase-hooks/auth";
+import Loader from "../loader/loader";
 
 const App = () => {
     const routes = useRoutes();
 
     const {auth} = useContext(Context);
-    const [user] = useAuthState(auth);
+    const [user, loading, error] = useAuthState(auth);
+
+    if (loading) {
+        return <Loader />
+    };
 
     return (
         <div className={'container main'}>

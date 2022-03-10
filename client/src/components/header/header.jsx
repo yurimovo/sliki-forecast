@@ -65,11 +65,21 @@ const Header = () => {
     const {auth} = useContext(Context);
     const [user] = useAuthState(auth);
 
+    const [isAdmin, setIsAdmin] = useState(false);
+    /*if (user.email === 'crazymanomsk@gmail.com') {
+        setIsAdmin(true);
+    };*/
+
     const login = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         const {user} = await auth.signInWithPopup(provider);
-        history('/');
+        const userData = await auth.currentUser();
+        if (userData.email === 'crazymanomsk@gmail.com') {
+            setIsAdmin(true);
+        }
+        console.log(userData.email);
         console.log(user);
+        history('/');
     }
 
     return (
@@ -121,7 +131,7 @@ const Header = () => {
                                <Link className={classes.headerLink} to="/personal-page">Личный кабинет</Link>
                            </Button>
                        </>}
-                       {/*{isAdmin ?
+                       {isAdmin ?
                            <>
                                <Button
                                    className={classes.headerButton}
@@ -131,7 +141,7 @@ const Header = () => {
                                    <Link className={classes.headerLink} to="/race-result">Админка</Link>
                                </Button>
                            </> : null
-                       }*/}
+                       }
                    </Toolbar>
                </Grid>
                <Grid item md={2}>

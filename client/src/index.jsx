@@ -7,6 +7,7 @@ import { authStore } from './store/stores/authStore';
 import firebase from "firebase";
 import 'firebase/firestore';
 import 'firebase/auth';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 firebase.initializeApp({apiKey: "AIzaSyA__5vAC_xAMuEV0cUFUXe6NYu2Z_pz8DE",
     authDomain: "forecast-d254f.firebaseapp.com",

@@ -1,13 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import firebase from "firebase";
-import {Context} from "../../index";
+import { Context } from "../../index";
 import MainBackground from '../../media/background.jpg';
 import FormBackground from '../../media/authBack.jpg';
 
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         width: '400px',
-        height: '32vh',
+        height: '300px',
         backgroundImage: `url(${FormBackground})`,
         borderRadius: '10px',
         borderStyle: 'groove'
@@ -43,7 +43,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'white',
         color: 'black',
         marginTop: theme.spacing(1),
-
+        width: '300px',
+        borderRadius: '10px',
+        borderStyle: 'groove',
+        '&:focus': {
+            borderStyle: 'none',
+        }
     }
 }))
 
@@ -88,7 +93,7 @@ export const Auth = () => {
         } else if (e.target.name === 'password') {
             setPasswordDirty(true);
         }
-    }
+    };
 
     useEffect(() => {
         if (emailError || passwordError) {
@@ -96,7 +101,7 @@ export const Auth = () => {
         } else {
             setFormValid(true)
         }
-    }, [emailError, passwordError])
+    }, [emailError, passwordError]);
 
     const login = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
