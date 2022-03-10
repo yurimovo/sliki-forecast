@@ -3,6 +3,6 @@
     flex-direction: column;
     border-style: groove;
     background-image: url(../../media/bg-positions.jpg);
-    justify-content: flex-start;
+    justify-content: space-between;
     min-height: 100vh;
 }

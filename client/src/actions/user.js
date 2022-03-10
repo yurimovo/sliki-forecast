@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {useDispatch} from "react-redux";
 
 const registration = async (userName, password, isAdmin) => {
     try {
@@ -14,18 +13,19 @@ const registration = async (userName, password, isAdmin) => {
     }
 }
 
-const authorization =  (userName, password, isAdmin) => {
-    const dispatch = useDispatch()
-    axios.post(`/api/auth/login`, {
-        userName,
-        password,
-        isAdmin
-    }).then(r => {
-        localStorage.setItem('token', r.data.token)
-        localStorage.setItem('isAdmin', r.data.user.isAdmin)
-        dispatch()
+const authorization = async (userName, password, isAdmin) => {
 
-    }).catch(e => console.log(e.response.data.message))
+    try {
+        const response = await axios.post(`/api/auth/login`, {
+            userName,
+            password,
+            isAdmin
+        })
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('currentUser', response.data.userName)
+    } catch (e) {
+        console.log(e.response.data.message)
+    }
 }
 
 export {

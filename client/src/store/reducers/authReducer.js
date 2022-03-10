@@ -15,7 +15,6 @@ const authReducer = (state = initialState, action) => {
 
         case actions.LOGOUT:
             localStorage.removeItem('token')
-            localStorage.removeItem('isAdmin')
             return {
                 ...state,
                 auth: false

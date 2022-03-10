@@ -24,7 +24,12 @@ export const Register = () => {
     }
 
     return (
-        <div className={'container container-register'}>
+        <div className={'container'} style={{
+            height: '83vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
             <div className={'row'}>
                 <div className={'col-md-12'}>
                     <div className={'main-style-reg-form text-center'}>

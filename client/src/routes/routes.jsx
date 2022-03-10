@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import NewForecast from "../components/new-forecast/new-forecast"
 import NextGp from "../components/next-gp/next-gp"
@@ -6,7 +6,6 @@ import PilotsPosition from "../components/pilots-position/pilots-positions"
 import TeamsPosition from "../components/teams-position/teams-position"
 import ForecastersPosition from "../components/forecasters-position/forecasters-position"
 import {Register} from "../components/register/register"
-import { useSelector } from 'react-redux'
 import {Auth} from "../components/auth/auth"
 import Body from "../components/body/body"
 import PersonalPage from "../components/personal-page/personal-page"
@@ -15,12 +14,15 @@ import PersonalForecastPosition from "../components/personal-forecast-position/p
 import PersonalForecasts from "../components/personal-forecasts/personal-forecasts"
 import PersonalForecastDetails from "../components/personal-forecast-details/personal-forecast-details"
 import RaceResult from "../components/race-result/race-result";
+import {Context} from "../index";
+import {useAuthState} from "react-firebase-hooks/auth";
 
 export const useRoutes = () => {
-    const auth = useSelector(state => state.auth)
+    const {auth} = useContext(Context);
+    const [user] = useAuthState(auth);
     return (
         <>
-            { auth ?
+            { user?
                 <Routes>
                     <Route path={'/'} exact element={<Body />} />
                     <Route path={'/next-gp'} exact element={<NextGp />} />
