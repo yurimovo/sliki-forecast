@@ -16,14 +16,15 @@ import 'firebase/auth';
 import {useAuthState} from "react-firebase-hooks/auth";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1
-    },
     appBar: {
         display: 'flex',
+        flexWrap: 'wrap',
+        position: 'static',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        backgroundImage: `url(${HeaderBackground})`
+        backgroundImage: `url(${HeaderBackground})`,
+        padding: 'auto',
+        margin: 'auto'
     },
     menuButton: {
       display: 'flex',
@@ -92,14 +93,14 @@ const Header = () => {
                    <Toolbar>
                        {!user ?
                        <>
-                           <Button
+                           {/*<Button
                                className={classes.headerButton}
                                color={'primary'}
                                variant={'contained'}
                                onClick={login}
                            >
                                Войти
-                           </Button>
+                           </Button>*/}
                            <Button
                                className={classes.headerButton}
                                color={'secondary'}

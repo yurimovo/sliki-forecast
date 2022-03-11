@@ -1,16 +1,23 @@
-import React, {useContext} from 'react'
-import Header from "../header/header"
-import Footer from "../footer/footer"
-
-import {useRoutes} from "../../routes/routes"
-
-import './app.css'
-import {Auth} from "../auth/auth"
+import React, {useContext} from 'react';
+import Header from "../header/header";
+import Footer from "../footer/footer";
+import {useRoutes} from "../../routes/routes";
+import {Auth} from "../auth/auth";
 import {Context} from "../../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import Loader from "../loader/loader";
+import { makeStyles } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+    }
+}));
 
 const App = () => {
+    const classes = useStyles();
     const routes = useRoutes();
 
     const {auth} = useContext(Context);
@@ -21,25 +28,21 @@ const App = () => {
     };
 
     return (
-        <div className={'container main'}>
-            <div className={'row'}>
-                <div className="col-sm-12">
-                    <Header />
-                </div>
-            </div>
-            <div className={'row'}>
+        <Grid container md={12} className={classes.root}>
+            <Grid item className={classes.header}>
+                <Header />
+            </Grid>
+            <Grid item className={classes.body}>
                 {!user ? <Auth /> :
-                    <div className={'col-sm-12'}>
+                    <div>
                         {routes}
                     </div>
                 }
-            </div>
-            <div className={'row'}>
-                <div className={'col-md-12'}>
-                    <Footer />
-                </div>
-            </div>
-        </div>
+            </Grid>
+            <Grid item className={classes.footer}>
+                <Footer />
+            </Grid>
+        </Grid>
     )
 }
 
